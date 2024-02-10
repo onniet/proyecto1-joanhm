@@ -508,8 +508,9 @@ import { CommonModule } from '@angular/common';
         <!--  WELCOME  -->
         <div id="welcome">
           <h1>
-            <span> Hello there, </span>
-            Welcome proyecto1-joanhm 👋
+            <span> Hola Compaaaa! </span>
+            <h3>Bienvenido al web </h3> 
+            proyecto1-joanhm 👋👋👋
           </h1>
         </div>
         <!--  HERO  -->
