@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { MatAnchor } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { WalletStore } from '@heavy-duty/wallet-adapter';
 import { HdWalletMultiButtonComponent } from '@heavy-duty/wallet-adapter-material';
@@ -8,7 +9,7 @@ import { ShyftApiService } from './shyft-api.service';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, HdWalletMultiButtonComponent],
+  imports: [RouterModule, HdWalletMultiButtonComponent, MatAnchor],
   selector: 'proyecto1-joanhm-root',
   template: `
     <header class="py-8 relative">
@@ -23,7 +24,20 @@ import { ShyftApiService } from './shyft-api.service';
         <p class="text.xl">{{ account()?.balance }}</p>
       </div>
       }
+      <nav>
+        <ul>
+          <li>
+            <a [routerLink]="['']" mat-raised-button>Home</a>
+          </li>
+          <li>
+            <a [routerLink]="['settings']" mat-raised-button>Configuraciones</a>
+          </li>
+        </ul>
+      </nav>
     </header>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
   `,
 })
 export class AppComponent {
