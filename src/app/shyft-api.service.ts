@@ -57,7 +57,6 @@ export class ShyftApiService {
 
     url.searchParams.set('network', 'mainnet-beta');
     url.searchParams.set('wallet', publickey);
-    url.searchParams.set('tx_num', '10');
 
     return this._httpClient
       .get<{

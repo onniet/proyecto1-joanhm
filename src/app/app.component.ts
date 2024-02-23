@@ -29,13 +29,12 @@ import { ShyftApiService } from './shyft-api.service';
           <p class="text.xl">{{ account2()?.balance }}</p>
         </div>
       </div>
-
-      <p class="text.xl111">{{ history_account()?.timestamp }}</p>
-      <p class="text.xl222">{{ history_account()?.fee }}</p>
-      <p class="text.xl333">{{ history_account()?.fee_payer }}</p>
+      } @if (history_account() ){
+      <p class="text.xl">{{ history_account()?.timestamp }}</p>
+      <p class="text.xl">{{ history_account()?.fee }}</p>
+      <p class="text.xl">{{ history_account()?.fee_payer }}</p>
       <p class="text.xl">HOLAGOLAHOLA</p>
       <p class="text.xl">HOwsadasOLAHOLA</p>
-
       }
 
       <nav>
