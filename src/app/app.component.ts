@@ -71,4 +71,4 @@ export class AppComponent {
     () => this._shyftApiService.getTransaction(this._publicKey()?.toBase58()),
     { requireSync: true }
   );
-}
+} //prova
