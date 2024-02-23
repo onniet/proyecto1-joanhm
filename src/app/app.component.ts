@@ -19,11 +19,25 @@ import { ShyftApiService } from './shyft-api.service';
       </div>
 
       @if (account() ){
-      <div class="absolute top-4 left-4 flex justify-center items-center gap-2">
-        <img [src]="account()?.info?.image" class="w-8 h-8" />
-        <p class="text.xl">{{ account()?.balance }}</p>
+      <div class="dbalance">
+        <div class="db1">
+          <img [src]="account()?.info?.image" class="w-8 h-8" />
+          <p class="text.xl">{{ account()?.balance }}</p>
+        </div>
+        <div class="db2">
+          <img [src]="account2()?.info?.image" class="w-8 h-8" />
+          <p class="text.xl">{{ account2()?.balance }}</p>
+        </div>
       </div>
+
+      <p class="text.xl111">{{ history_account()?.timestamp }}</p>
+      <p class="text.xl222">{{ history_account()?.fee }}</p>
+      <p class="text.xl333">{{ history_account()?.fee_payer }}</p>
+      <p class="text.xl">HOLAGOLAHOLA</p>
+      <p class="text.xl">HOwsadasOLAHOLA</p>
+
       }
+
       <nav>
         <ul>
           <li>
@@ -36,7 +50,7 @@ import { ShyftApiService } from './shyft-api.service';
       </nav>
     </header>
     <main>
-      <router-outlet></router-outlet>
+      <router-outlet> </router-outlet>
     </main>
   `,
 })
@@ -47,6 +61,15 @@ export class AppComponent {
 
   readonly account = computedAsync(
     () => this._shyftApiService.getAccount(this._publicKey()?.toBase58()),
+    { requireSync: true }
+  );
+  readonly account2 = computedAsync(
+    () => this._shyftApiService.getAccount2(this._publicKey()?.toBase58()),
+    { requireSync: true }
+  );
+
+  readonly history_account = computedAsync(
+    () => this._shyftApiService.getTransaction(this._publicKey()?.toBase58()),
     { requireSync: true }
   );
 }
